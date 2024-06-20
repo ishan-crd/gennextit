@@ -16,9 +16,15 @@ const HeroSection = () => {
       scrollY.on("change", (latest) => {
         if (latest > 2200) {
           const newValue = 6 + ((latest - 2200) / window.outerHeight) * 100;
-          const newTop = 30 - ((latest - 2200) / window.outerHeight) * 100;
+          const newTop =
+            15 -
+            ((latest - 2200) / window.outerHeight) *
+              100 *
+              (window.outerWidth > window.outerHeight
+                ? window.outerHeight / window.outerWidth
+                : 1);
           setDynamicBottomSecond(`${newValue}vmin`);
-          setDynamicTop(`${newTop}vmin`);
+          setDynamicTop(`${newTop}vmax`);
         }
       });
     };
@@ -31,15 +37,21 @@ const HeroSection = () => {
   }, [scrollY]);
 
   const rotationRight = useTransform(scrollY, [0, 200], [-27, 0]);
+  const rotationLeft = useTransform(scrollY, [0, 200], [27, 0]);
   const top = useTransform(
     scrollY,
     [0, 200, 1900, 2200],
-    ["13vmin", "30vmin", "30vmin", dynamicTop]
+    ["6vmax", "15vmax", "15vmax", dynamicTop]
   );
   const bottomSecond = useTransform(
     scrollY,
     [0, 200, 460, 1000, 1300, 1900, 2200],
-    ["19vmin", "6vmin", "6vmin", "0vmin", "0vmin", "6vmin", dynamicBottomSecond]
+    ["9vmax", "2vmax", "2vmax", "0", "0", "9vmax", dynamicBottomSecond]
+  );
+  const bottom = useTransform(
+    scrollY,
+    [0, 200, 460, 1000, 1300, 1900],
+    ["9vmax", "2vmax", "2vmax", "10.5vmax", "10.5vmax", "9vmax"]
   );
   const leftRight = useTransform(
     scrollY,
@@ -58,18 +70,6 @@ const HeroSection = () => {
   );
   const opacity = useTransform(scrollY, [460, 660, 1300, 1900], [1, 0, 0, 1]);
   const opacityBottom = useTransform(scrollY, [0, 1300, 1900], [1, 1, 0]);
-  // const width = "20vmax";
-  // const opacity = useTransform(
-  //   scrollY,
-  //   [0, 460, 660, 1300, 1450],
-  //   [1, 1, 0, 0, 1]
-  // );
-  const bottom = useTransform(
-    scrollY,
-    [0, 200, 460, 1000, 1300, 1900],
-    ["19vmin", "6vmin", "6vmin", "24vmin", "24vmin", "6vmin"]
-  );
-  const rotationLeft = useTransform(scrollY, [0, 200], [27, 0]);
   return (
     <div className="min-h-[70vmin] no-scrollbar flex justify-center items-center flex-col relative">
       <Heading />

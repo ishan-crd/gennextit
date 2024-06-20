@@ -6,20 +6,32 @@ const Heading = () => {
   const { scrollY } = useScroll();
   const opacity = useTransform(scrollY, [0, 100], [1, 0]);
   const top = useTransform(scrollY, [0, 100], ["13vh", "8vh"]);
-  //   const backgroundPosition = useTransform(scrollY, [0, 150], [100, 45]);
+  const heading = useTransform(
+    scrollY,
+    [0, 1000, 1700, 2200],
+    ["IT Consulting", "IT Consulting", "Development", "and Training"]
+  );
+  const background = useTransform(
+    scrollY,
+    [0, 200],
+    [
+      "linear-gradient(to right, #fff, 100%, #1332d7)",
+      "linear-gradient(to right, #fff, 45%, #1332d7)",
+    ]
+  );
 
   return (
     <div className="mb-[5vh]">
       <h1 className="font-manrope font-medium text-[9vmin] text-center">
         <motion.span
-          //   style={{
-          //     background: `linear-gradient(to right, #fff, ${backgroundPosition.current}%, #1332d7)`,
-          //     backgroundClip: "text",
-          //   }}
-          style={{ top }}
+          style={{
+            backgroundImage: background,
+            backgroundClip: "text",
+            top,
+          }}
           className="fixed left-0 right-0 text-gradient-white"
         >
-          IT Consulting
+          {heading}
         </motion.span>
         <br />
         <motion.span style={{ opacity }}>
