@@ -1,8 +1,11 @@
 import Image, { ImageProps } from "next/image";
-import React from "react";
+import React, { forwardRef } from "react";
 
-const SectionImage = ({ height, width, className, ...props }: any) => {
-  return <img {...props} className={className || ` w-[60vw]`} />;
+const SectionImage = (
+  { height, width, className, ...props }: any,
+  ref: any
+) => {
+  return <img ref={ref} {...props} className={className || `w-[65vmax]`} />;
 };
 
-export default SectionImage;
+export default forwardRef(SectionImage);

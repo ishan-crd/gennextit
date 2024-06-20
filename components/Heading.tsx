@@ -2,13 +2,27 @@
 import { motion, useScroll, useTransform } from "framer-motion";
 import React from "react";
 
-const Heading = () => {
+const Heading = ({
+  consulting,
+  dev,
+  training,
+}: {
+  consulting: DOMRect;
+  dev: DOMRect;
+  training: DOMRect;
+}) => {
+  console.log("🚀 ~ training:", training);
+  console.log("🚀 ~ dev:", dev);
+  console.log("🚀 ~ consulting:", consulting);
   const { scrollY } = useScroll();
+  // scrollY.on("change", (lv) => {
+  //   console.log("🚀 ~ scrollY.on ~ lv:", lv);
+  // });
   const opacity = useTransform(scrollY, [0, 100], [1, 0]);
-  const top = useTransform(scrollY, [0, 100], ["13vh", "8vh"]);
+  const top = useTransform(scrollY, [0, 100], ["13vh", "6vh"]);
   const heading = useTransform(
     scrollY,
-    [0, 1000, 1700, 2200],
+    [0, consulting?.bottom - 100, dev?.bottom - 100, training?.top],
     ["IT Consulting", "IT Consulting", "Development", "and Training"]
   );
   const background = useTransform(
@@ -41,7 +55,7 @@ const Heading = () => {
       </h1>
       <motion.p
         style={{ opacity }}
-        className="font-poppins text-[20px] text-gradient-black text-center"
+        className="font-poppins text-xl text-gradient-black text-center"
       >
         We have helped over 100 companies reach their <br /> potential within 2
         years with our supervision.
