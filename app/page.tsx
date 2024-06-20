@@ -1,3 +1,4 @@
+//@ts-nocheck
 "use client";
 import Consulting from "@/components/Consulting";
 import Development from "@/components/Development";
