@@ -17,7 +17,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="no-scrollbar">
+    <html lang="en" className="no-scrollbar text-[10px] md:text-[16px]">
       <body className={inter.className + " no-scrollbar flex flex-col"}>
         <Header />
         {children}
