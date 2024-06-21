@@ -33,8 +33,8 @@ const Windows = ({
         }px`,
     `${consulting.top + (isSm ? 10 : 20)}px`,
     `${consulting.top + (isSm ? 10 : 20)}px`,
-    `${dev.top + dev.height * 0.05}px`,
-    `${dev.top + dev.height * 0.05}px`,
+    `${dev.top + dev.height * 0.08}px`,
+    `${dev.top + dev.height * 0.08}px`,
     `${training.top + 40}px`,
   ]);
   const bottomSecond = useTransform(scrollY, inputs, [
@@ -49,15 +49,19 @@ const Windows = ({
     `${consulting.top + (consulting.height - (isSm ? 20 : 40)) / 2}px`,
     `${
       dev.top +
-      dev.height * 0.05 +
+      dev.height * 0.08 +
       ((((isSm ? 20 : 14) * window.innerWidth) / 100) * 7) / 9 +
-      30
+      (0.7 * dev.height -
+        (3 * ((((isSm ? 20 : 14) * window.innerWidth) / 100) * 7)) / 9) /
+        2
     }px`,
     `${
       dev.top +
-      dev.height * 0.05 +
+      dev.height * 0.08 +
       ((((isSm ? 20 : 14) * window.innerWidth) / 100) * 7) / 9 +
-      30
+      (0.7 * dev.height -
+        (3 * ((((isSm ? 20 : 14) * window.innerWidth) / 100) * 7)) / 9) /
+        2
     }px`,
     `${
       training.top +
@@ -78,15 +82,20 @@ const Windows = ({
     `${consulting.top + (consulting.height - (isSm ? 20 : 40)) / 2}px`,
     `${
       dev.top +
-      dev.height * 0.05 +
+      dev.height * 0.08 +
       (2 * ((((isSm ? 20 : 14) * window.innerWidth) / 100) * 7)) / 9 +
-      60
+      (2 *
+        (0.7 * dev.height -
+          (3 * ((((isSm ? 20 : 14) * window.innerWidth) / 100) * 7)) / 9)) /
+        2
     }px`,
     `${
       dev.top +
-      dev.height * 0.05 +
+      dev.height * 0.08 +
       (2 * ((((isSm ? 20 : 14) * window.innerWidth) / 100) * 7)) / 9 +
-      60
+      (0.7 * dev.height -
+        (3 * ((((isSm ? 20 : 14) * window.innerWidth) / 100) * 7)) / 9) /
+        2
     }px`,
     `${training.top + (training.height - 40) / 2}px`,
   ]);
