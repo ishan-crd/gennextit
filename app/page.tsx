@@ -16,6 +16,7 @@ export default function Home() {
   const [refsLoaded, setRefsLoaded] = useState(
     Boolean(consultingRef.current && devRef.current && trainRef.current)
   );
+  console.log("🚀 ~ Home ~ consultingRef:", consultingRef.current);
   const [isSm, setIsSm] = useState(false);
   useEffect(() => {
     if (
@@ -40,6 +41,7 @@ export default function Home() {
           consulting={consultingRef.current?.getBoundingClientRect()}
           dev={devRef.current?.getBoundingClientRect()}
           training={trainRef.current?.getBoundingClientRect()}
+          isSm={isSm}
         />
       )}
       <HeroSection
