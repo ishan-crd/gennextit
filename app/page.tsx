@@ -20,6 +20,7 @@ export default function Home() {
 
   useEffect(() => {
     setIsSm(window?.innerWidth < 768);
+    window.scrollTo(0, 0);
   }, []);
   return (
     <div className="flex flex-col no-scrollbar flex-1">
