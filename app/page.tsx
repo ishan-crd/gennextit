@@ -10,11 +10,15 @@ import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 
 export default function Home() {
-  const consultingRef = useRef<HTMLDivElement>(null);
-  const devRef = useRef<HTMLDivElement>(null);
-  const trainRef = useRef<HTMLDivElement>(null);
+  const consultingRef = useRef<HTMLImageElement>(null);
+  const devRef = useRef<HTMLImageElement>(null);
+  const trainRef = useRef<HTMLImageElement>(null);
   const [refsLoaded, setRefsLoaded] = useState(
-    Boolean(consultingRef.current && devRef.current && trainRef.current)
+    Boolean(
+      consultingRef.current?.getBoundingClientRect() &&
+        devRef.current?.getBoundingClientRect() &&
+        trainRef.current?.getBoundingClientRect()
+    )
   );
   console.log("🚀 ~ Home ~ consultingRef:", consultingRef.current);
   const [isSm, setIsSm] = useState(false);

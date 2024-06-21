@@ -1,10 +1,9 @@
 "use client";
 import { ForwardedRef, forwardRef, useEffect, useRef } from "react";
-import SectionImage from "./SectionImage";
 import Consulting from "./Consulting";
 import { motion } from "framer-motion";
 
-const Training = (props: any, ref: ForwardedRef<HTMLDivElement>) => {
+const Training = (props: any, ref: ForwardedRef<HTMLImageElement>) => {
   return (
     <div className="section flex-1 no-scrollbar flex justify-start items-center flex-col relative pb-[10vh]">
       <motion.h1
@@ -20,13 +19,7 @@ const Training = (props: any, ref: ForwardedRef<HTMLDivElement>) => {
       >
         and Training
       </motion.h1>
-      <SectionImage
-        src={"/ipad.png"}
-        alt={"ipad"}
-        className="w-[50vmax]"
-        ref={ref}
-        // className="
-      />
+      <img src={"/ipad.png"} alt={"ipad"} className="w-[50vmax]" ref={ref} />
     </div>
   );
 };
