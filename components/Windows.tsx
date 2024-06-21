@@ -48,6 +48,10 @@ const Windows = ({
     `${dev.top + dev.height * 0.08}px`,
     `${training.top + 40}px`,
   ]);
+  console.log(
+    `${consulting.top + (consulting.height - (isSm ? 20 : 40)) / 2}px`,
+    inputs
+  );
   const bottomSecond = useTransform(scrollY, inputs, [
     !isSm
       ? `${(60 * window.outerHeight) / 100}px`
