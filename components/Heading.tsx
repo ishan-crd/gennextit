@@ -22,7 +22,12 @@ const Heading = ({
   const top = useTransform(scrollY, [0, 100], ["13vh", "6vh"]);
   const heading = useTransform(
     scrollY,
-    [0, consulting?.bottom - 100, dev?.bottom - 100, training?.top],
+    [
+      0,
+      consulting?.bottom - consulting?.height / 4,
+      dev?.bottom - dev?.height / 4,
+      training?.top,
+    ],
     ["IT Consulting", "IT Consulting", "Development", "and Training"]
   );
   const background = useTransform(
