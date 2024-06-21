@@ -27,20 +27,29 @@ const Heading = ({
   //   `${training?.top - 200}px`,
   // ]);
   const [dynamicTop, setDynamicTop] = useState(
-    `${(6 * window?.innerHeight) / 100}px`
+    // `${(6 * window.innerHeight) / 100}px`
+    "0px"
   );
-
+  const isSm = window?.innerWidth < 768;
   useEffect(() => {
     // const updateBottomSecond = () => {
-    scrollY.on("change", (latest) => {
-      console.log("🚀 ~ scrollY.on ~ latest:", latest);
-      if (latest > consulting?.top - consulting?.height / 4) {
-        const newTop =
-          30 - (latest - (consulting?.top - consulting?.height / 4));
-        console.log("🚀 ~ scrollY.on ~ newTop:", newTop);
-        setDynamicTop(`${newTop}px`);
-      }
-    });
+    if (consulting && spanRef.current)
+      scrollY.on("change", (latest) => {
+        if (
+          latest >
+          (!isSm
+            ? consulting?.top - window?.innerHeight * 0.25
+            : consulting?.top - consulting?.height)
+        ) {
+          // const newTop =
+          //   (6 * window.innerHeight) / 100 -
+          //   (latest - (consulting?.top - window?.innerHeight * 0.25));
+          // setDynamicTop(`${newTop}px`);
+          return;
+        } else {
+          setDynamicTop(`${latest}px`);
+        }
+      });
     // };
 
     // updateBottomSecond();
@@ -48,16 +57,21 @@ const Heading = ({
     // return () => {
     //   scrollY.clearListeners();
     // };
-  }, [scrollY, consulting]);
-  const top = useTransform(
-    scrollY,
-    [0, 300, consulting?.top - (spanRef.current?.clientHeight || 150)],
-    [
-      `${(13 * window.innerHeight) / 100}px`,
-      `${(6 * window.innerHeight) / 100}px`,
-      dynamicTop,
-    ]
-  );
+  }, [scrollY, consulting, spanRef.current]);
+  // const top = useTransform(
+  //   scrollY,
+  //   [
+  //     0,
+  //     Math.min(window?.innerHeight / 2, 300),
+  //     consulting?.top - window?.innerHeight * 0.25,
+  //   ],
+  //   [0, `${(6 * window.innerHeight) / 100}px`, dynamicTop]
+  // );
+  // const position = useTransform(
+  //   scrollY,
+  //   [0, 100, 200],
+  //   ["relative", "relative", "fixed"]
+  // );
   // const heading = useTransform(
   //   scrollY,
   //   [
@@ -85,9 +99,10 @@ const Heading = ({
           style={{
             backgroundImage: background,
             backgroundClip: "text",
-            top,
+            top: dynamicTop,
+            position: "relative",
           }}
-          className="fixed left-0 right-0 text-gradient-white"
+          className="left-0 right-0 text-gradient-white"
           ref={spanRef}
         >
           IT Consulting

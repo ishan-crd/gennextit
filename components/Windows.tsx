@@ -11,7 +11,7 @@ const Windows = ({
   training: DOMRect;
 }) => {
   const { scrollY } = useScroll();
-  const rotationRight = useTransform(scrollY, [0, 200], [-27, 0]);
+  const isSm = window?.innerWidth < 768;
   const inputs = [
     0,
     consulting.top - 170,
@@ -21,7 +21,13 @@ const Windows = ({
     training.top - 170,
   ];
   const top = useTransform(scrollY, inputs, [
-    `${(13 * window.outerHeight) / 100}px`,
+    !isSm
+      ? `${(13 * window.outerHeight) / 100}px`
+      : `${
+          consulting.top -
+          (((14 * window.innerWidth) / 100) * 7) / 9 -
+          0.09 * window.innerHeight
+        }px`,
     `${consulting.top + 20}px`,
     `${consulting.top + 20}px`,
     `${dev.top + dev.height * 0.05}px`,
@@ -29,7 +35,13 @@ const Windows = ({
     `${training.top + 40}px`,
   ]);
   const bottomSecond = useTransform(scrollY, inputs, [
-    `${(60 * window.outerHeight) / 100}px`,
+    !isSm
+      ? `${(60 * window.outerHeight) / 100}px`
+      : `${
+          consulting.top -
+          (((14 * window.innerWidth) / 100) * 7) / 9 -
+          0.09 * window.innerHeight
+        }px`,
     `${consulting.top + (consulting.height - 40) / 2}px`,
     `${consulting.top + (consulting.height - 40) / 2}px`,
     `${
@@ -52,7 +64,13 @@ const Windows = ({
     }px`,
   ]);
   const bottom = useTransform(scrollY, inputs, [
-    `${(60 * window.outerHeight) / 100}px`,
+    !isSm
+      ? `${(60 * window.outerHeight) / 100}px`
+      : `${
+          consulting.top -
+          (((14 * window.innerWidth) / 100) * 7) / 9 -
+          0.09 * window.innerHeight
+        }px`,
     `${consulting.top + (consulting.height - 40) / 2}px`,
     `${consulting.top + (consulting.height - 40) / 2}px`,
     `${
@@ -77,8 +95,28 @@ const Windows = ({
     `${(43 * window.innerWidth) / 100}px`,
     `${training.left + training.width / 10}px`,
   ]);
+  const leftThird = useTransform(scrollY, inputs, [
+    isSm
+      ? `${
+          (0.1 * window.innerWidth) / 3 +
+          (5 * window.innerWidth) / 100 +
+          0.2 * window.innerWidth
+        }px`
+      : `${(5 * window.outerWidth) / 100}px`,
+    `${consulting.left + consulting.width / 6}px`,
+    `${consulting.left + consulting.width / 6}px`,
+    `${(43 * window.innerWidth) / 100}px`,
+    `${(43 * window.innerWidth) / 100}px`,
+    `${training.left + training.width / 10}px`,
+  ]);
   const centeredLeftRight = useTransform(scrollY, inputs, [
-    `${(5 * window.outerWidth) / 100}px`,
+    isSm
+      ? `${
+          (0.1 * window.innerWidth) / 3 +
+          (5 * window.innerWidth) / 100 +
+          0.2 * window.innerWidth
+        }px`
+      : `${(5 * window.outerWidth) / 100}px`,
     `${consulting.left + consulting.width / 6}px`,
     `${consulting.left + consulting.width / 6}px`,
     `${(43 * window.innerWidth) / 100}px`,
@@ -86,7 +124,7 @@ const Windows = ({
     `${(40 * window.innerWidth) / 100}px`,
   ]);
   const width = useTransform(scrollY, inputs, [
-    "18vw",
+    isSm ? "20vw" : "18vw",
     "20vw",
     "20vw",
     "14vw",
@@ -103,7 +141,8 @@ const Windows = ({
     [consulting.top, dev.top, training.top - 170],
     [1, 1, 0]
   );
-  const rotationLeft = useTransform(scrollY, [0, 200], [27, 0]);
+  const rotationRight = useTransform(scrollY, [0, 200], [isSm ? 0 : -27, 0]);
+  const rotationLeft = useTransform(scrollY, [0, 200], [isSm ? 0 : 27, 0]);
   return (
     <>
       <motion.img
@@ -117,7 +156,7 @@ const Windows = ({
         alt={"window"}
         style={{
           rotate: rotationRight,
-          left: leftRight,
+          left: leftThird,
           top: bottom,
           width,
           opacity: opacityBottom,

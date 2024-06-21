@@ -16,7 +16,7 @@ const Input = ({
     >
       <input
         {...props}
-        className={`${className} flex-1 bg-transparent font-poppins px-[1vw] py-[0.8vh] text-base font-normal`}
+        className={`${className} flex-1 bg-transparent font-poppins px-[1vmax] py-[0.8vmin] text-base font-normal`}
       />
       <CTA text={"Contact"} />
     </motion.div>
