@@ -22,7 +22,7 @@ const Windows = ({
   useEffect(() => {
     const id = setTimeout(() => {
       setForceAnimation(true);
-    }, 250);
+    }, 500);
     return () => clearTimeout(id);
   }, []);
   const inputs = [
