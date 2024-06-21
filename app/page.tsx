@@ -20,12 +20,16 @@ export default function Home() {
   useEffect(() => {
     if (
       !refsLoaded &&
-      consultingRef.current &&
-      devRef.current &&
-      trainRef.current
+      consultingRef.current?.getBoundingClientRect() &&
+      devRef.current?.getBoundingClientRect() &&
+      trainRef.current?.getBoundingClientRect()
     )
       setRefsLoaded(true);
-  }, [consultingRef.current, devRef.current, trainRef.current]);
+  }, [
+    consultingRef.current?.getBoundingClientRect,
+    devRef.current?.getBoundingClientRect,
+    trainRef.current?.getBoundingClientRect,
+  ]);
   useEffect(() => {
     setIsSm(window?.innerWidth < 768);
   }, []);

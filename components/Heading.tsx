@@ -11,9 +11,9 @@ const Heading = ({
   dev: DOMRect;
   training: DOMRect;
 }) => {
-  console.log("🚀 ~ training:", training);
-  console.log("🚀 ~ dev:", dev);
-  console.log("🚀 ~ consulting:", consulting);
+  // console.log("🚀 ~ training:", training);
+  // console.log("🚀 ~ dev:", dev);
+  // console.log("🚀 ~ consulting:", consulting);
   const { scrollY } = useScroll();
   const spanRef = useRef<HTMLSpanElement>(null);
   // const inputs = [0, consulting?.top + 80, dev?.top + 80, training?.top];
