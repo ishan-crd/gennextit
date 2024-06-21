@@ -28,11 +28,11 @@ const Windows = ({
       ? `${(13 * window.outerHeight) / 100}px`
       : `${
           consulting.top -
-          (((14 * window.innerWidth) / 100) * 7) / 9 -
+          ((((isSm ? 20 : 14) * window.innerWidth) / 100) * 7) / 9 -
           0.09 * window.innerHeight
         }px`,
-    `${consulting.top + 20}px`,
-    `${consulting.top + 20}px`,
+    `${consulting.top + (isSm ? 10 : 20)}px`,
+    `${consulting.top + (isSm ? 10 : 20)}px`,
     `${dev.top + dev.height * 0.05}px`,
     `${dev.top + dev.height * 0.05}px`,
     `${training.top + 40}px`,
@@ -42,28 +42,28 @@ const Windows = ({
       ? `${(60 * window.outerHeight) / 100}px`
       : `${
           consulting.top -
-          (((14 * window.innerWidth) / 100) * 7) / 9 -
+          ((((isSm ? 20 : 14) * window.innerWidth) / 100) * 7) / 9 -
           0.09 * window.innerHeight
         }px`,
-    `${consulting.top + (consulting.height - 40) / 2}px`,
-    `${consulting.top + (consulting.height - 40) / 2}px`,
+    `${consulting.top + (consulting.height - (isSm ? 20 : 40)) / 2}px`,
+    `${consulting.top + (consulting.height - (isSm ? 20 : 40)) / 2}px`,
     `${
       dev.top +
       dev.height * 0.05 +
-      (((14 * window.innerWidth) / 100) * 7) / 9 +
+      ((((isSm ? 20 : 14) * window.innerWidth) / 100) * 7) / 9 +
       30
     }px`,
     `${
       dev.top +
       dev.height * 0.05 +
-      (((14 * window.innerWidth) / 100) * 7) / 9 +
+      ((((isSm ? 20 : 14) * window.innerWidth) / 100) * 7) / 9 +
       30
     }px`,
     `${
       training.top +
       training.height -
       20 -
-      (((20 * window.innerWidth) / 100) * 7) / 9
+      ((((isSm ? 30 : 20) * window.innerWidth) / 100) * 7) / 9
     }px`,
   ]);
   const bottom = useTransform(scrollY, inputs, [
@@ -71,21 +71,21 @@ const Windows = ({
       ? `${(60 * window.outerHeight) / 100}px`
       : `${
           consulting.top -
-          (((14 * window.innerWidth) / 100) * 7) / 9 -
+          ((((isSm ? 20 : 14) * window.innerWidth) / 100) * 7) / 9 -
           0.09 * window.innerHeight
         }px`,
-    `${consulting.top + (consulting.height - 40) / 2}px`,
-    `${consulting.top + (consulting.height - 40) / 2}px`,
+    `${consulting.top + (consulting.height - (isSm ? 20 : 40)) / 2}px`,
+    `${consulting.top + (consulting.height - (isSm ? 20 : 40)) / 2}px`,
     `${
       dev.top +
       dev.height * 0.05 +
-      (2 * (((14 * window.innerWidth) / 100) * 7)) / 9 +
+      (2 * ((((isSm ? 20 : 14) * window.innerWidth) / 100) * 7)) / 9 +
       60
     }px`,
     `${
       dev.top +
       dev.height * 0.05 +
-      (2 * (((14 * window.innerWidth) / 100) * 7)) / 9 +
+      (2 * ((((isSm ? 20 : 14) * window.innerWidth) / 100) * 7)) / 9 +
       60
     }px`,
     `${training.top + (training.height - 40) / 2}px`,
@@ -94,8 +94,8 @@ const Windows = ({
     `${(5 * window.outerWidth) / 100}px`,
     `${consulting.left + consulting.width / 6}px`,
     `${consulting.left + consulting.width / 6}px`,
-    `${(43 * window.innerWidth) / 100}px`,
-    `${(43 * window.innerWidth) / 100}px`,
+    `${((isSm ? 40 : 43) * window.innerWidth) / 100}px`,
+    `${((isSm ? 40 : 43) * window.innerWidth) / 100}px`,
     `${training.left + training.width / 10}px`,
   ]);
   const leftThird = useTransform(scrollY, inputs, [
@@ -108,8 +108,8 @@ const Windows = ({
       : `${(5 * window.outerWidth) / 100}px`,
     `${consulting.left + consulting.width / 6}px`,
     `${consulting.left + consulting.width / 6}px`,
-    `${(43 * window.innerWidth) / 100}px`,
-    `${(43 * window.innerWidth) / 100}px`,
+    `${((isSm ? 40 : 43) * window.innerWidth) / 100}px`,
+    `${((isSm ? 40 : 43) * window.innerWidth) / 100}px`,
     `${training.left + training.width / 10}px`,
   ]);
   const centeredLeftRight = useTransform(scrollY, inputs, [
@@ -122,17 +122,17 @@ const Windows = ({
       : `${(5 * window.outerWidth) / 100}px`,
     `${consulting.left + consulting.width / 6}px`,
     `${consulting.left + consulting.width / 6}px`,
-    `${(43 * window.innerWidth) / 100}px`,
-    `${(43 * window.innerWidth) / 100}px`,
-    `${(40 * window.innerWidth) / 100}px`,
+    `${((isSm ? 40 : 43) * window.innerWidth) / 100}px`,
+    `${((isSm ? 40 : 43) * window.innerWidth) / 100}px`,
+    `${((isSm ? 35 : 40) * window.innerWidth) / 100}px`,
   ]);
   const width = useTransform(scrollY, inputs, [
     isSm ? "20vw" : "18vw",
-    "20vw",
-    "20vw",
-    "14vw",
-    "14vw",
-    "20vw",
+    isSm ? "30vw" : "20vw",
+    isSm ? "30vw" : "20vw",
+    isSm ? "20vw" : "14vw",
+    isSm ? "20vw" : "14vw",
+    isSm ? "30vw" : "20vw",
   ]);
   const opacity = useTransform(
     scrollY,
