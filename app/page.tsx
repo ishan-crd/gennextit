@@ -20,7 +20,11 @@ export default function Home() {
         trainRef.current?.getBoundingClientRect()
     )
   );
-  console.log("🚀 ~ Home ~ consultingRef:", consultingRef.current);
+  console.log(
+    "🚀 ~ Home ~ consultingRef:",
+    consultingRef.current,
+    consultingRef.current?.getBoundingClientRect()
+  );
   const [isSm, setIsSm] = useState(false);
   useEffect(() => {
     if (
