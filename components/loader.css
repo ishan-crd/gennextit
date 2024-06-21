@@ -1,13 +1,5 @@
-:root {
-  --hue: 223;
-  --bg: hsl(223deg 45.36% 39.11%);
-  --fg: hsl(var(--hue), 90%, 10%);
-  --primary: hsl(var(--hue), 90%, 50%);
-  --trans-dur: 0.3s;
-}
 #loader {
-  background-color: var(--bg);
-  color: var(--fg);
+  background-color: #000;
   display: flex;
   font: 1em/1.5 sans-serif;
   font-size: calc(16px + (32 - 16) * (100vw - 320px) / (2560 - 320));
