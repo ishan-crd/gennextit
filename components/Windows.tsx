@@ -13,18 +13,18 @@ const Windows = ({
 }) => {
   const { scrollY } = useScroll();
   const [isSm, setIsSm] = useState(false);
+  const [forceAnimation, setForceAnimation] = useState(false);
   useEffect(() => {
     setIsSm(window?.innerWidth < 768);
-  }, []);
-  const [forceAnimation, setForceAnimation] = useState(false);
-
-  // triggered once
-  useEffect(() => {
     const id = setTimeout(() => {
       setForceAnimation(true);
     }, 500);
-    return () => clearTimeout(id);
+    return () => {
+      clearTimeout(id);
+      scrollY.clearListeners();
+    };
   }, []);
+
   const inputs = [
     0,
     consulting.top - 170,
