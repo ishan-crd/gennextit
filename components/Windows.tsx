@@ -6,21 +6,22 @@ const Windows = ({
   consulting,
   dev,
   training,
+  isSm,
 }: {
   consulting: DOMRect;
   dev: DOMRect;
   training: DOMRect;
+  isSm: boolean;
 }) => {
   const { scrollY } = useScroll();
-  const [isSm, setIsSm] = useState(false);
-  const [forceAnimation, setForceAnimation] = useState(false);
+  // const [forceAnimation, setForceAnimation] = useState(false);
   useEffect(() => {
-    setIsSm(window?.innerWidth < 768);
-    const id = setTimeout(() => {
-      setForceAnimation(true);
-    }, 500);
+    // setIsSm(window?.innerWidth < 768);
+    // const id = setTimeout(() => {
+    //   setForceAnimation(true);
+    // }, 500);
     return () => {
-      clearTimeout(id);
+      // clearTimeout(id);
       scrollY.clearListeners();
     };
   }, []);
@@ -165,7 +166,6 @@ const Windows = ({
   );
   const rotationRight = useTransform(scrollY, [0, 200], [isSm ? 0 : -27, 0]);
   const rotationLeft = useTransform(scrollY, [0, 200], [isSm ? 0 : 27, 0]);
-  if (!forceAnimation) return;
   return (
     <>
       <motion.img

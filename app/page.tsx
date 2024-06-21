@@ -16,6 +16,7 @@ export default function Home() {
   const [refsLoaded, setRefsLoaded] = useState(
     Boolean(consultingRef.current && devRef.current && trainRef.current)
   );
+  const [isSm, setIsSm] = useState(false);
   useEffect(() => {
     if (
       !refsLoaded &&
@@ -25,6 +26,9 @@ export default function Home() {
     )
       setRefsLoaded(true);
   }, [consultingRef.current, devRef.current, trainRef.current]);
+  useEffect(() => {
+    setIsSm(window?.innerWidth < 768);
+  }, []);
   return (
     <div className="flex flex-col no-scrollbar flex-1">
       {refsLoaded && (
