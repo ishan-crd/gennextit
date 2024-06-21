@@ -16,6 +16,12 @@ const Windows = ({
   useEffect(() => {
     setIsSm(window?.innerWidth < 768);
   }, []);
+  const [forceAnimation, setForceAnimation] = useState(false);
+
+  // triggered once
+  useEffect(() => {
+    setForceAnimation(true);
+  }, []);
   const inputs = [
     0,
     consulting.top - 170,
@@ -156,6 +162,7 @@ const Windows = ({
   );
   const rotationRight = useTransform(scrollY, [0, 200], [isSm ? 0 : -27, 0]);
   const rotationLeft = useTransform(scrollY, [0, 200], [isSm ? 0 : 27, 0]);
+  if (!forceAnimation) return;
   return (
     <>
       <motion.img
