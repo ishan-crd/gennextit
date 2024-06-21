@@ -30,7 +30,10 @@ const Heading = ({
     // `${(6 * window.innerHeight) / 100}px`
     "0px"
   );
-  const isSm = window?.innerWidth < 768;
+  const [isSm, setIsSm] = useState(false);
+  useEffect(() => {
+    setIsSm(window?.innerWidth < 768);
+  }, []);
   useEffect(() => {
     // const updateBottomSecond = () => {
     if (consulting && spanRef.current)

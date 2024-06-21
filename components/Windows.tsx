@@ -11,7 +11,10 @@ const Windows = ({
   training: DOMRect;
 }) => {
   const { scrollY } = useScroll();
-  const isSm = window?.innerWidth < 768;
+  const [isSm, setIsSm] = useState(false);
+  useEffect(() => {
+    setIsSm(window?.innerWidth < 768);
+  }, []);
   const inputs = [
     0,
     consulting.top - 170,
