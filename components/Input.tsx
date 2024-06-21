@@ -1,5 +1,5 @@
 "use client";
-import React, { InputHTMLAttributes } from "react";
+import React, { InputHTMLAttributes, useEffect } from "react";
 import CTA from "./CTA";
 import { motion, useScroll, useTransform } from "framer-motion";
 
@@ -9,6 +9,9 @@ const Input = ({
 }: InputHTMLAttributes<HTMLInputElement>) => {
   const { scrollY } = useScroll();
   const opacity = useTransform(scrollY, [0, 100], [1, 0]);
+  useEffect(() => {
+    return () => scrollY.clearListeners();
+  }, []);
   return (
     <motion.div
       style={{ opacity }}

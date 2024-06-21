@@ -61,6 +61,9 @@ const Heading = ({
     //   scrollY.clearListeners();
     // };
   }, [scrollY, consulting, spanRef.current]);
+  useEffect(() => {
+    return () => scrollY.clearListeners();
+  }, []);
   // const top = useTransform(
   //   scrollY,
   //   [
