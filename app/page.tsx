@@ -1,4 +1,3 @@
-//@ts-nocheck
 "use client";
 import Consulting from "@/components/Consulting";
 import Development from "@/components/Development";
@@ -6,6 +5,7 @@ import Heading from "@/components/Heading";
 import HeroSection from "@/components/HeroSection";
 import Training from "@/components/Training";
 import Windows from "@/components/Windows";
+import useImageLoad from "@/hooks/useImageLoad";
 import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 
@@ -13,33 +13,10 @@ export default function Home() {
   const consultingRef = useRef<HTMLImageElement>(null);
   const devRef = useRef<HTMLImageElement>(null);
   const trainRef = useRef<HTMLImageElement>(null);
-  const [refsLoaded, setRefsLoaded] = useState(
-    Boolean(
-      consultingRef.current?.getBoundingClientRect() &&
-        devRef.current?.getBoundingClientRect() &&
-        trainRef.current?.getBoundingClientRect()
-    )
-  );
-  console.log(
-    "🚀 ~ Home ~ consultingRef:",
-    refsLoaded,
-    consultingRef.current,
-    consultingRef.current?.getBoundingClientRect()
-  );
+  const refs = [consultingRef, devRef, trainRef];
+  const refsLoaded = useImageLoad(refs);
   const [isSm, setIsSm] = useState(false);
-  useEffect(() => {
-    if (
-      !refsLoaded &&
-      consultingRef.current?.getBoundingClientRect() &&
-      devRef.current?.getBoundingClientRect() &&
-      trainRef.current?.getBoundingClientRect()
-    )
-      setRefsLoaded(true);
-  }, [
-    consultingRef.current?.getBoundingClientRect,
-    devRef.current?.getBoundingClientRect,
-    trainRef.current?.getBoundingClientRect,
-  ]);
+
   useEffect(() => {
     setIsSm(window?.innerWidth < 768);
   }, []);
