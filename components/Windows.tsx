@@ -48,11 +48,6 @@ const Windows = ({
     `${dev.top + dev.height * 0.08}px`,
     `${training.top + 40}px`,
   ]);
-  console.log(
-    `${consulting.top + (consulting.height - (isSm ? 20 : 40)) / 2}px`,
-    consulting,
-    consulting.height
-  );
   const bottomSecond = useTransform(scrollY, inputs, [
     !isSm
       ? `${(60 * window.outerHeight) / 100}px`
@@ -66,17 +61,17 @@ const Windows = ({
     `${
       dev.top +
       dev.height * 0.08 +
-      ((((isSm ? 20 : 14) * window.innerWidth) / 100) * 7) / 9 +
+      ((((isSm ? 24 : 14) * window.innerWidth) / 100) * 7) / 9 +
       (0.7 * dev.height -
-        (3 * ((((isSm ? 20 : 14) * window.innerWidth) / 100) * 7)) / 9) /
+        (3 * ((((isSm ? 24 : 14) * window.innerWidth) / 100) * 7)) / 9) /
         2
     }px`,
     `${
       dev.top +
       dev.height * 0.08 +
-      ((((isSm ? 20 : 14) * window.innerWidth) / 100) * 7) / 9 +
+      ((((isSm ? 24 : 14) * window.innerWidth) / 100) * 7) / 9 +
       (0.7 * dev.height -
-        (3 * ((((isSm ? 20 : 14) * window.innerWidth) / 100) * 7)) / 9) /
+        (3 * ((((isSm ? 24 : 14) * window.innerWidth) / 100) * 7)) / 9) /
         2
     }px`,
     `${
@@ -99,18 +94,18 @@ const Windows = ({
     `${
       dev.top +
       dev.height * 0.08 +
-      (2 * ((((isSm ? 20 : 14) * window.innerWidth) / 100) * 7)) / 9 +
+      (2 * ((((isSm ? 24 : 14) * window.innerWidth) / 100) * 7)) / 9 +
       (2 *
         (0.7 * dev.height -
-          (3 * ((((isSm ? 20 : 14) * window.innerWidth) / 100) * 7)) / 9)) /
+          (3 * ((((isSm ? 24 : 14) * window.innerWidth) / 100) * 7)) / 9)) /
         2
     }px`,
     `${
       dev.top +
       dev.height * 0.08 +
-      (2 * ((((isSm ? 20 : 14) * window.innerWidth) / 100) * 7)) / 9 +
+      (2 * ((((isSm ? 24 : 14) * window.innerWidth) / 100) * 7)) / 9 +
       (0.7 * dev.height -
-        (3 * ((((isSm ? 20 : 14) * window.innerWidth) / 100) * 7)) / 9) /
+        (3 * ((((isSm ? 24 : 14) * window.innerWidth) / 100) * 7)) / 9) /
         2
     }px`,
     `${training.top + (training.height - 40) / 2}px`,
@@ -119,8 +114,8 @@ const Windows = ({
     `${(5 * window.outerWidth) / 100}px`,
     `${consulting.left + consulting.width / 6}px`,
     `${consulting.left + consulting.width / 6}px`,
-    `${((isSm ? 40 : 43) * window.innerWidth) / 100}px`,
-    `${((isSm ? 40 : 43) * window.innerWidth) / 100}px`,
+    `${((isSm ? 38 : 43) * window.innerWidth) / 100}px`,
+    `${((isSm ? 38 : 43) * window.innerWidth) / 100}px`,
     `${training.left + training.width / 10}px`,
   ]);
   const leftThird = useTransform(scrollY, inputs, [
@@ -133,8 +128,8 @@ const Windows = ({
       : `${(5 * window.outerWidth) / 100}px`,
     `${consulting.left + consulting.width / 6}px`,
     `${consulting.left + consulting.width / 6}px`,
-    `${((isSm ? 40 : 43) * window.innerWidth) / 100}px`,
-    `${((isSm ? 40 : 43) * window.innerWidth) / 100}px`,
+    `${((isSm ? 38 : 43) * window.innerWidth) / 100}px`,
+    `${((isSm ? 38 : 43) * window.innerWidth) / 100}px`,
     `${training.left + training.width / 10}px`,
   ]);
   const centeredLeftRight = useTransform(scrollY, inputs, [
@@ -147,16 +142,16 @@ const Windows = ({
       : `${(5 * window.outerWidth) / 100}px`,
     `${consulting.left + consulting.width / 6}px`,
     `${consulting.left + consulting.width / 6}px`,
-    `${((isSm ? 40 : 43) * window.innerWidth) / 100}px`,
-    `${((isSm ? 40 : 43) * window.innerWidth) / 100}px`,
+    `${((isSm ? 38 : 43) * window.innerWidth) / 100}px`,
+    `${((isSm ? 38 : 43) * window.innerWidth) / 100}px`,
     `${((isSm ? 35 : 40) * window.innerWidth) / 100}px`,
   ]);
   const width = useTransform(scrollY, inputs, [
     isSm ? "20vw" : "18vw",
     isSm ? "30vw" : "20vw",
     isSm ? "30vw" : "20vw",
-    isSm ? "20vw" : "14vw",
-    isSm ? "20vw" : "14vw",
+    isSm ? "24vw" : "14vw",
+    isSm ? "24vw" : "14vw",
     isSm ? "30vw" : "20vw",
   ]);
   const opacity = useTransform(
