@@ -21,8 +21,8 @@ export default function Home() {
     setIsSm(window?.innerWidth < 768);
     window.scrollTo(0, 0);
     document.documentElement.scrollTop = 0;
+    console.log(document.documentElement.scrollTop);
   }, []);
-  console.log(document.documentElement.scrollTop);
   const consultingBoundRect = consultingRef.current?.getBoundingClientRect();
   const devBoundRect = devRef.current?.getBoundingClientRect();
   const trainBoundRect = trainRef.current?.getBoundingClientRect();
