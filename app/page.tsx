@@ -24,11 +24,14 @@ export default function Home() {
   }, []);
   useEffect(() => {
     console.log(document.documentElement.scrollTop);
-    if (refsLoaded) {
-      window.scrollTo(0, 0);
-      document.documentElement.scrollTop = 0;
-    }
+    // if (refsLoaded) {
+    window.scrollTo(0, 0);
+    document.documentElement.scrollTop = 0;
+    // }
   }, [refsLoaded]);
+  useEffect(() => {
+    console.log(document.documentElement.scrollTop);
+  });
   const consultingBoundRect = consultingRef.current?.getBoundingClientRect();
   const devBoundRect = devRef.current?.getBoundingClientRect();
   const trainBoundRect = trainRef.current?.getBoundingClientRect();
