@@ -16,28 +16,25 @@ export default function Home() {
   const refs = [consultingRef, devRef, trainRef];
   const refsLoaded = useImageLoad(refs);
   const [isSm, setIsSm] = useState(false);
+  const [scrolledToTop, setScrolledToTop] = useState(false);
 
   useEffect(() => {
     setIsSm(window?.innerWidth < 768);
-    window.scrollTo(0, 0);
-    document.documentElement.scrollTop = 0;
   }, []);
   useEffect(() => {
     console.log(document.documentElement.scrollTop);
-    // if (refsLoaded) {
-    window.scrollTo(0, 0);
-    document.documentElement.scrollTop = 0;
-    // }
+    if (refsLoaded) {
+      window.scrollTo(0, 0);
+      document.documentElement.scrollTop = 0;
+      setScrolledToTop(true);
+    }
   }, [refsLoaded]);
-  useEffect(() => {
-    console.log(document.documentElement.scrollTop);
-  });
   const consultingBoundRect = consultingRef.current?.getBoundingClientRect();
   const devBoundRect = devRef.current?.getBoundingClientRect();
   const trainBoundRect = trainRef.current?.getBoundingClientRect();
   return (
     <div className="flex flex-col no-scrollbar flex-1">
-      {refsLoaded && (
+      {refsLoaded && scrolledToTop && (
         <Windows
           consulting={consultingBoundRect}
           dev={devBoundRect}
