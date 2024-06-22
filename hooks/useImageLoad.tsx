@@ -30,9 +30,6 @@ function useImageLoad(refs: any) {
       images.forEach((img: any) => img.removeEventListener("load", onLoad));
     };
   }, [refs]);
-
-  window.scrollTo(0, 0);
-  document.documentElement.scrollTop = 0;
   return loaded;
 }
 export default useImageLoad;
