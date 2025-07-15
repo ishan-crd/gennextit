@@ -2,10 +2,39 @@
 import { motion } from "framer-motion";
 import { useState } from "react";
 
-const ServicesPage = () => {
-  const [selectedService, setSelectedService] = useState(null);
+// Define the Service interface
+interface Service {
+  id: number;
+  title: string;
+  category: string;
+  icon: string;
+  shortDesc: string;
+  description: string;
+  features: string[];
+  benefits: string[];
+  process: string[];
+}
 
-  const services = [
+// Define the Industry interface
+interface Industry {
+  name: string;
+  icon: string;
+  clients: string;
+}
+
+// Define the Testimonial interface
+interface Testimonial {
+  name: string;
+  position: string;
+  company: string;
+  text: string;
+  rating: number;
+}
+
+const ServicesPage = () => {
+  const [selectedService, setSelectedService] = useState<Service | null>(null);
+
+  const services: Service[] = [
     {
       id: 1,
       title: "IT Consulting",
@@ -188,7 +217,7 @@ const ServicesPage = () => {
     },
   ];
 
-  const industries = [
+  const industries: Industry[] = [
     { name: "Healthcare", icon: "🏥", clients: "50+" },
     { name: "Finance", icon: "🏦", clients: "40+" },
     { name: "E-commerce", icon: "🛒", clients: "60+" },
@@ -197,7 +226,7 @@ const ServicesPage = () => {
     { name: "Real Estate", icon: "🏢", clients: "35+" },
   ];
 
-  const testimonials = [
+  const testimonials: Testimonial[] = [
     {
       name: "Rajesh Kumar",
       position: "CTO, TechVision Solutions",
