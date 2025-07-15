@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 const AboutPage = () => {
   const teamMembers = [
     {
-      name: "Amit Sharma",
+      name: "Amit Gupta",
       position: "CEO & Founder",
       experience: "20+ years",
       expertise: "IT Strategy & Leadership",
