@@ -344,7 +344,7 @@ const CareerPage = () => {
             <p className="font-poppins text-sm text-gray-500">
               Email:{" "}
               <span className="text-blue-400">careers@gennextit.com</span> |
-              Phone: <span className="text-blue-400">+91 1234567891</span>
+              Phone: <span className="text-blue-400">+91 7840079095</span>
             </p>
           </div>
         </motion.div>
