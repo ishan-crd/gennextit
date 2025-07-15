@@ -2,8 +2,19 @@
 import { motion } from "framer-motion";
 import { useState } from "react";
 
+interface Job {
+  id: number;
+  title: string;
+  department: string;
+  location: string;
+  type: string;
+  experience: string;
+  description: string;
+  requirements: string[];
+}
+
 const CareerPage = () => {
-  const [selectedJob, setSelectedJob] = useState(null);
+  const [selectedJob, setSelectedJob] = useState<Job | null>(null);
 
   const jobOpenings = [
     {

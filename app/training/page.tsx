@@ -2,8 +2,21 @@
 import { motion } from "framer-motion";
 import { useState } from "react";
 
+interface Course {
+  id: number;
+  title: string;
+  category: string;
+  duration: string;
+  level: string;
+  price: string;
+  image: string;
+  description: string;
+  modules: string[];
+  features: string[];
+}
+
 const TrainingPage = () => {
-  const [selectedCourse, setSelectedCourse] = useState(null);
+  const [selectedCourse, setSelectedCourse] = useState<Course | null>(null);
 
   const trainingPrograms = [
     {
