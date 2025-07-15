@@ -251,8 +251,10 @@ const AboutPage = () => {
                   alt={member.name}
                   className="w-24 h-24 rounded-full mx-auto object-cover"
                   onError={(e) => {
-                    e.target.style.display = "none";
-                    e.target.nextSibling.style.display = "flex";
+                    const target = e.target as HTMLImageElement;
+                    const nextSibling = target.nextSibling as HTMLElement;
+                    target.style.display = "none";
+                    if (nextSibling) nextSibling.style.display = "flex";
                   }}
                 />
                 <div className="hidden w-24 h-24 rounded-full mx-auto bg-gradient-to-r from-blue-600 to-purple-600 items-center justify-center">
@@ -344,8 +346,10 @@ const AboutPage = () => {
                 alt="Global Presence"
                 className="w-full h-64 object-cover rounded-lg mb-4"
                 onError={(e) => {
-                  e.target.style.display = "none";
-                  e.target.nextSibling.style.display = "flex";
+                  const target = e.target as HTMLImageElement;
+                  const nextSibling = target.nextSibling as HTMLElement;
+                  target.style.display = "none";
+                  if (nextSibling) nextSibling.style.display = "flex";
                 }}
               />
               <div className="hidden w-full h-64 bg-gradient-to-br from-blue-600/30 to-purple-600/30 rounded-lg items-center justify-center">
